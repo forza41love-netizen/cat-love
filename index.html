@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Для тебя ❤️</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #ffe5ec;
+            background-image: 
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%23ffc2d1' fill-opacity='0.4'%3E%3Ccircle cx='40' cy='45' r='12'/%3E%3Ccircle cx='25' cy='28' r='5'/%3E%3Ccircle cx='35' cy='20' r='5'/%3E%3Ccircle cx='45' cy='20' r='5'/%3E%3Ccircle cx='55' cy='28' r='5'/%3E%3C/g%3E%3C/svg%3E"),
+                linear-gradient(135deg, #ffe5ec, #ffc2d1);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #4a4a4a;
+        }
+
+        .wrapper {
+            position: relative;
+            max-width: 400px;
+            width: 90%;
+            margin-top: 40px;
+        }
+
+        .cat-peeking {
+            position: absolute;
+            top: -42px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 50px;
+            line-height: 1;
+            z-index: 1;
+            animation: bounce 3s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translate(-50%, 0); }
+            50% { transform: translate(-50%, -5px); }
+        }
+
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(255, 71, 126, 0.15);
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            color: #ff477e;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .secret-button {
+            background: #ff477e;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.2s;
+            margin-top: 20px;
+        }
+
+        .secret-button:hover {
+            background: #ff7096;
+            transform: scale(1.05);
+        }
+
+        .hidden-message {
+            display: none;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px dashed #ffc2d1;
+            animation: fadeIn 1s forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        <div class="cat-peeking">🐱</div>
+        
+        <div class="card">
+            <!-- Именное приветствие -->
+            <h1>Марусечка! ❤️</h1>
+            <p>Я создал эту страницу специально для тебя, чтобы напомнить об одной важной вещи...</p>
+            
+            <button class="secret-button" onclick="revealMessage()">Нажми сюда</button>
+
+            <div class="hidden-message" id="message">
+                <p><strong>Я тебя очень сильно люблю.</strong></p>
+                <p>Ты — лучшее, что со мной случилось. Спасибо за то, что ты есть. 🐾</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function revealMessage() {
+            document.getElementById('message').style.display = 'block';
+            document.querySelector('.secret-button').style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>
